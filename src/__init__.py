@@ -1,0 +1,1 @@
+from .ShmupGame import run
