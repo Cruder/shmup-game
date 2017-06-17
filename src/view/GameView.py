@@ -3,32 +3,28 @@ from cocos.director import director
 from cocos.scene import Scene
 from src.layer import HUD
 
-from src.model import GameModel
+from src.model import LevelModel
 from src.controller import GameController
 
 __all__ = ['get_newgame']
 
 
 class GameView(cocos.layer.ColorLayer):
-    is_event_handler = True  #: enable director.window events
+    is_event_handler = True  # enable director.window events
 
     def __init__(self, model, hud):
         super(GameView, self).__init__(64, 64, 224, 0)
         model.set_view(self)
         self.hud = hud
         self.model = model
-        self.model.push_handlers(self.on_update_objectives
-                                 , self.on_update_time
+        self.model.push_handlers(self.on_update_time
                                  , self.on_game_over
                                  , self.on_level_completed)
         self.model.start()
-        self.hud.set_objectives(self.model.objectives)
         self.hud.show_message('GET READY')
 
-    def on_update_objectives(self):
-        self.hud.set_objectives(self.model.objectives)
-
     def on_update_time(self, time_percent):
+        print("Update time?")
         self.hud.update_time(time_percent)
 
     def on_game_over(self):
@@ -40,7 +36,7 @@ class GameView(cocos.layer.ColorLayer):
 
 def get_newgame():
     scene = Scene()
-    model = GameModel()
+    model = LevelModel()
     controller = GameController(model)
     # view
     hud = HUD()
@@ -49,9 +45,8 @@ def get_newgame():
     # set controller in model
     model.set_controller(controller)
 
-    # add controller
     scene.add(controller, z=1, name="controller")
-    scene.add(hud, z=3, name="hud")
-    scene.add(view, z=2, name="view")
+    scene.add(view,       z=2, name="view")
+    scene.add(hud,        z=3, name="hud")
 
     return scene

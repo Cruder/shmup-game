@@ -1,4 +1,6 @@
 from cocos.layer import Layer
+from pyglet.window import key
+from pyglet.window.key import KeyStateHandler
 
 
 class GameController(Layer):
@@ -7,9 +9,18 @@ class GameController(Layer):
     def __init__(self, model):
         super(GameController, self).__init__()
         self.model = model
+        self.keys = KeyStateHandler()
 
-    def on_mouse_press(self, x, y, buttons, modifiers):
-        self.model.on_mouse_press(x, y)
+    def on_key_press(self, symbol, modifiers):
+        self.keys[symbol] = True
+        print("Key pressed !")
+        print(symbol, modifiers)
 
-    def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
-        self.model.on_mouse_drag(x, y)
+    def on_key_release(self, symbol, modifiers):
+        self.keys[symbol] = False
+        print("Key released !")
+        print(symbol, modifiers)
+
+    def on_mouse_motion(self, x, y, dx, dy):
+        if self.keys[key.LEFT]:
+            print("left !")
