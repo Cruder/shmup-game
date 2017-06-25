@@ -1,3 +1,4 @@
 .idea
 **/*.pyc
 db/db_python_shmup
+db/db_python_shmup_test
