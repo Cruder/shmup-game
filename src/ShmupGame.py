@@ -18,7 +18,7 @@ def run():
     director.director.init(caption="Touhou Game", fullscreen=True)
 
     scene = Scene()
-    scene.add(BackgroundLayer('./videos/Touhou-Animated-Wallpaper.m4v'), z=1)
+    scene.add(BackgroundLayer('./videos/home.mp4'), z=1)
     scene.add(MultiplexLayer(MainMenu()), z=1)
 
     director.director.run(scene)

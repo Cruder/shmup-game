@@ -2,10 +2,10 @@ from cocos.layer import *
 
 
 class BackgroundLayer(Layer):
-    def __init__(self, mediaPath):
+    def __init__(self, media_path):
         super(BackgroundLayer, self).__init__()
 
-        source = pyglet.media.load(mediaPath)
+        source = pyglet.media.load(media_path)
         format = source.video_format
         if not format:
             print('No video track in this source.')
