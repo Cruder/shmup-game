@@ -23,7 +23,6 @@ class GameController(Layer):
 
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.ESCAPE:
+            import src.view
+            director.push(src.view.game_pause())
             return pyglet.event.EVENT_HANDLED
-
-    def on_pause(self, symbol, modifiers):
-        print("MUSH")

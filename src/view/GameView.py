@@ -35,11 +35,7 @@ class GameView(cocos.layer.ColorLayer):
         self.hud.show_message('LEVEL COMPLETED', msg_duration=3, callback=lambda: self.model.set_next_level())
 
     def on_key_press(self, symbol, modifiers):
-        print('ESCAPE')
-        print(symbol)
-        if symbol == pyglet.window.key.ESCAPE:
-            import src.view
-            director.push(src.view.game_pause())
+        pass
 
 
 def get_newgame():
