@@ -8,9 +8,6 @@ class MainMenu(Menu):
     def __init__(self):
         super(MainMenu, self).__init__('Touhou')
 
-        # you can override the font that will be used for the title and the items
-        # you can also override the font size and the colors. see menu.py for
-        # more info
         self.font_title['font_name'] = 'Edit Undo Line BRK'
         self.font_title['font_size'] = 72
         self.font_title['color'] = (204, 164, 164, 255)
@@ -26,7 +23,8 @@ class MainMenu(Menu):
         self.menu_anchor_y = CENTER
         self.menu_anchor_x = CENTER
 
-        items = [MenuItem('New Game', self.on_new_game), MenuItem('Quit', self.on_quit)]
+        items = [MenuItem('New Game', self.on_new_game),
+                 MenuItem('Quit', self.on_quit)]
 
         self.create_menu(items, shake(), shake_back())
 

@@ -18,7 +18,8 @@ class PauseView(Menu):
         super(PauseView, self).__init__('Pause')
         # model.set_view(self)
 
-        items = [MenuItem('Continue', self.on_continue_game), MenuItem('Quit', self.on_quit)]
+        items = [MenuItem('Continue', self.on_continue_game),
+                 MenuItem('Quit', self.on_quit)]
 
         self.create_menu(items, shake(), shake_back())
 
@@ -28,6 +29,7 @@ class PauseView(Menu):
     def on_quit(self):
         director.pop()
         director.pop()
+
 
 def game_pause():
     scene = Scene()
