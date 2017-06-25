@@ -1,6 +1,7 @@
-from cocos.layer import Layer
+from cocos.layer import Layer, director
 from pyglet.window import key
 from pyglet.window.key import KeyStateHandler
+import pyglet
 
 
 class GameController(Layer):

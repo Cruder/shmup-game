@@ -16,4 +16,4 @@ class BackgroundLayer(Layer):
         self.media_player.play()
 
     def draw(self):
-        self.media_player.get_texture().blit(0, 0)
+        self.media_player.get_texture().blit(0, 0, width=1920, height=1080)

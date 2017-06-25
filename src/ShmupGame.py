@@ -19,6 +19,6 @@ def run():
 
     scene = Scene()
     scene.add(BackgroundLayer('./videos/home.mp4'), z=1)
-    scene.add(MultiplexLayer(MainMenu()), z=1)
+    scene.add(MultiplexLayer(MainMenu()), z=2)
 
     director.director.run(scene)
