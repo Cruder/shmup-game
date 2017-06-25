@@ -6,6 +6,7 @@ from cocos import director
 from cocos.scene import Scene
 from cocos.layer import MultiplexLayer
 from .menu import MainMenu
+from .layer import BackgroundLayer
 
 
 def run():
@@ -17,6 +18,7 @@ def run():
     director.director.init(caption="Touhou Game", fullscreen=True)
 
     scene = Scene()
+    scene.add(BackgroundLayer('./videos/Touhou-Animated-Wallpaper.m4v'), z=1)
     scene.add(MultiplexLayer(MainMenu()), z=1)
 
     director.director.run(scene)
