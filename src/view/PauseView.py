@@ -26,7 +26,8 @@ class PauseView(Menu):
         director.pop()
 
     def on_quit(self):
-        pyglet.app.exit()
+        director.pop()
+        director.pop()
 
 def game_pause():
     scene = Scene()
