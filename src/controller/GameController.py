@@ -12,11 +12,6 @@ class GameController(Layer):
         self.model = model
         self.keys = KeyStateHandler()
 
-    def on_key_press(self, symbol, modifiers):
-        self.keys[symbol] = True
-        print("Key pressed !")
-        print(symbol, modifiers)
-
     def on_key_release(self, symbol, modifiers):
         self.keys[symbol] = False
         print("Key released !")
@@ -25,3 +20,10 @@ class GameController(Layer):
     def on_mouse_motion(self, x, y, dx, dy):
         if self.keys[key.LEFT]:
             print("left !")
+
+    def on_key_press(self, symbol, modifiers):
+        if symbol == pyglet.window.key.ESCAPE:
+            return pyglet.event.EVENT_HANDLED
+
+    def on_pause(self, symbol, modifiers):
+        print("MUSH")
