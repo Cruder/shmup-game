@@ -11,8 +11,6 @@ __all__ = ['get_newgame']
 
 
 class GameView(cocos.layer.ColorLayer):
-    is_event_handler = True  # enable director.window events
-
     def __init__(self, model, hud):
         super(GameView, self).__init__(64, 64, 224, 0)
         model.set_view(self)
@@ -33,9 +31,6 @@ class GameView(cocos.layer.ColorLayer):
 
     def on_level_completed(self):
         self.hud.show_message('LEVEL COMPLETED', msg_duration=3, callback=lambda: self.model.set_next_level())
-
-    def on_key_press(self, symbol, modifiers):
-        pass
 
 
 def get_newgame():
