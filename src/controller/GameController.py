@@ -24,3 +24,6 @@ class GameController(Layer):
     def on_mouse_motion(self, x, y, dx, dy):
         if self.keys[key.LEFT]:
             print("left !")
+
+    def update(self, dt):
+        print("Update :D")
